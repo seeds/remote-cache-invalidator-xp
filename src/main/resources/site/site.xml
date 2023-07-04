@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<site>
+    <processors>
+        <response-processor name="metadata" order="10"/>  
+    </processors>
+    <form>
+        <item-set name="cloudflare">
+            <label>Cloudflare Configuration</label>
+            <occurrences minimum="0" maximum="1" />
+            <items>
+                <input name="url" type="TextLine">
+                    <label>Api url</label>
+                    <help-text>https://api.cloudflare.com/client/v4/zones/023e105f4ecef8ad9ca31a8372d0c353/purge_cache</help-text>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+
+                <input name="token" type="TextLine">
+                    <label>Auth token</label>
+                    <help-text>po04nS8k-MP52D8DFso94XqgeVUG7bwULYIeQ6a7</help-text>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+
+                <input name="disable-service" type="CheckBox">
+                    <label>Disable this service</label>
+                    <default>checked</default>
+                    <config>
+                        <alignment>right</alignment>
+                    </config>
+                </input>
+
+            </items>
+        </item-set>
+
+        <input name="cacheControlHeader" type="TextLine">
+            <label>Cache-Control header</label>
+            <occurrences minimum="0" maximum="1" />
+        </input>
+    </form>
+</site>

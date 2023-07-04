@@ -1,0 +1,56 @@
+plugins {
+    id 'com.enonic.xp.app' version '2.0.0'
+    id 'maven-publish'
+}
+
+app {
+    name = "${appName}"
+    displayName = "${appDisplayName}"
+    vendorName = "${vendorName}"
+    vendorUrl = "${vendorUrl}"
+    systemVersion = "${xpVersion}"
+}
+
+dependencies {
+    compile "com.enonic.xp:core-api:${xpVersion}"
+    compile "com.enonic.xp:portal-api:${xpVersion}"
+    include "com.enonic.xp:lib-content:${xpVersion}"
+    include "com.enonic.xp:lib-portal:${xpVersion}"
+    include "com.enonic.xp:lib-node:${xpVersion}"
+    include "com.enonic.xp:lib-event:${xpVersion}"
+    include "com.enonic.xp:lib-context:${xpVersion}"
+
+    include 'com.enonic.lib:lib-http-client:2.1.1'
+
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    xp.enonicRepo()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = "${group}"
+            artifactId = "${projectName}"
+            version = "${version}"		
+            from components.java
+        }
+    }
+	repositories {
+        maven {
+			def releasesRepoUrl = "https://git.seeds.no/api/v4/projects/318/packages/maven"
+            def snapshotsRepoUrl = "https://git.seeds.no/api/v4/projects/318/packages/maven"
+            url = "https://git.seeds.no/api/v4/projects/318/packages/maven"
+            credentials(HttpHeaderCredentials) {
+                name = "Private-Token"
+                value = gitlabpat
+            }
+            authentication {
+                header(HttpHeaderAuthentication)
+            }
+        }
+    }
+}
