@@ -28,6 +28,6 @@ The application jar should be in /build/libs as cache-invalidator-X.X.jar
 - Cloudflare
 
 ## License and credits
-The application is licensed under the [MIT license](https://github.com/seeds/remote-cache-invalidator/blob/master/LICENSE.txt)
+The application is licensed under the [GNU Affero General Public License v3.0](https://github.com/seeds/remote-cache-invalidator-xp/blob/main/LICENSE)
 
 Made by [Seeds Consulting](https://seeds.no)
