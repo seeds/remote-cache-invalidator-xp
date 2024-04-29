@@ -1,4 +1,5 @@
 const CLOUDFLARE = require('/lib/cloudflare')
+const FASTLY = require('/lib/fastly')
 
 /**
  * *******************************************************
@@ -13,6 +14,9 @@ exports.run = function(appConfig) {
     if(appConfig.cloudflare){
         appConfig.cloudflare && runCloudflare(appConfig.cloudflare)
     }
+    if(appConfig.fastly){
+        appConfig.fastly && runFastly(appConfig.fastly)
+    }
 }
 
 function runCloudflare(cflConfig){
@@ -20,4 +24,11 @@ function runCloudflare(cflConfig){
 
     const cflMessage = CLOUDFLARE.execute(cflConfig.url, cflConfig.token)
     log.info(`Cloudflare message(s): ${cflMessage}`)
+}
+
+function runFastly(fastlyConfig){
+    if(fastlyConfig['disable-service']) return
+
+    const fastlyMessage = FASTLY.execute(fastlyConfig.url, fastlyConfig.token)
+    log.info(`Fastly message(s): ${fastlyMessage}`)
 }

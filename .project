@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>cache-invalidator</name>
+	<name>remote-cache-invalidator</name>
 	<comment>Project remote-cache-invalidator created by Buildship.</comment>
 	<projects>
 	</projects>

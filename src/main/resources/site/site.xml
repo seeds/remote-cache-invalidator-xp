@@ -27,10 +27,33 @@
                         <alignment>right</alignment>
                     </config>
                 </input>
-
             </items>
         </item-set>
+        <item-set name="fastly">
+            <label>Fastly Configuration</label>
+            <occurrences minimum="0" maximum="1" />
+            <items>
+                <input name="url" type="TextLine">
+                    <label>Api url</label>
+                    <help-text>https://api.fastly.com/service/SU1Z0isxPaozGVKXdv0eY/purge_all</help-text>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
 
+                <input name="token" type="TextLine">
+                    <label>Auth token</label>
+                    <help-text>YOUR_FASTLY_TOKEN</help-text>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+
+                <input name="disable-service" type="CheckBox">
+                    <label>Disable this service</label>
+                    <default>checked</default>
+                    <config>
+                        <alignment>right</alignment>
+                    </config>
+                </input>
+            </items>
+        </item-set>
         <input name="cacheControlHeader" type="TextLine">
             <label>Cache-Control header</label>
             <occurrences minimum="0" maximum="1" />
